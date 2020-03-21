@@ -9,7 +9,7 @@ public class ExceptionCheck {
         if (m.find()) {
             throw new IllegalExpressionException("Выражение неверно построенно, в выражении не может быть симоволов, кроме операторов и операндов");
         } else {
-            m = Pattern.compile("^([()]+?\\d+[()]?+\\s[-+*/]\\s[()]+?\\d+[()]+?)+$").matcher(string);
+            m = Pattern.compile("^([(]+?\\d+[)]?+\\s[-+*/]\\s[(]+?\\d+[)]+?)+$").matcher(string);
             if (m.find()) {
                 throw new IllegalExpressionPositionException("Строка должна быть в порядке \"операнд оператор операнд ... оператор операнд\", первый символ не может быть закрывающей, а последний открывающей скобкой, также скобки должны закрываться");
             } else {
